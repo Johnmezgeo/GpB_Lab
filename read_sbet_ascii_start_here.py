@@ -32,9 +32,9 @@ Johnson's geodesy library by calling “gps_calendar(sta='2021-12-01', sto='2021
 Assuming the observation date was 2021-12-13 Monday; ideally, dd should be 13. 
 Calling tow_sec_2_hms(2021, 12, 13, tow) will return full dates and time in pandas datetime object. 
 
-However, you can safely pass dd=14, dd=15, dd=16 and the time and date will still be return for day 13. 
+However, you can safely pass dd=14, dd=15, dd=16 and the time and date will still be accurate as day 13. 
 For instance tow_sec_2_hms(2021, 12, 15, [146092.82]) will return 2021-12-13 16:34:52.820.
-Any number representing the any day within the week the data was collected will return accurate result. 
+Any number representing any day within the week the data was collected will return accurate result. 
 Note, however, that using a day outside the week will move date-time representation to the chosen week accordingly.
 """
 
