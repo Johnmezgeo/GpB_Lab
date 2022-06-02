@@ -15,10 +15,11 @@ Qinertia data path
 """
 # %%
 from parsers.sbet_file_2_strct import *
+from parsers.ascii2sbet import *
 
-
-proj_dir = r"G:/____TECHNICAL/___USM_COLLABORATION_PROJECTS/___2021_Dec_IMU_Projects/___202112_IMU_Projects_Results"\
+test_proj_dir = r"G:/____TECHNICAL/___USM_COLLABORATION_PROJECTS/___2021_Dec_IMU_Projects/___202112_IMU_Projects_Results" \
            r"/Testdata/"
+
 
 # %%
 """
@@ -56,6 +57,11 @@ Note, however, that using a day outside the week will move date-time representat
 # pos2_data = file_2_strct(file_path)
 
 # %%
-data_file = "POS_LonLat_UTC_DnT_TOWs_Type3.txt"
-file_path = proj_dir + data_file
+data_file = "POS_LonLat_UTC_DTT_Type3.txt"
+file_path = test_proj_dir + data_file
 pos3_data = file_2_strct(file_path)
+print(pos3_data.columns)
+
+# Generate SBET and RMS files
+sbet_int_chk(pos3_data) # check SBET writing integrity before binary encoding
+pos_ascii_2_sbet(pos3_data)
